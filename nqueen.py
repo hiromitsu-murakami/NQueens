@@ -3,10 +3,11 @@
 
 # N-Queens
 
+import sys
 import copy
 import time
 
-# 7x7作成
+# 行列作成
 def make_matrix(n):
     matrix = []
     for x in range(n):
@@ -61,13 +62,17 @@ def queen_all(n):
     return hand(hands, matrix, 0, 0, n)
 
 # 実行
-n = 9
-a = time.time()
-found = queen_all(n)
-b = time.time()
-print('%.3f secs' % (b-a))
-print('%d Queens' % (n))
-print('%d All Patterns' % (found))
-print('')
-# print('(8:92 9:352 10:724 11:2680 12:14200)')
-# print('')
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        n = int(sys.argv[1])
+    else:
+        n = 8
+    a = time.time()
+    found = queen_all(n)
+    b = time.time()
+    print('%.3f secs' % (b-a))
+    print('%d Queens' % (n))
+    print('%d All Patterns' % (found))
+    print('')
+    # print('(8:92 9:352 10:724 11:2680 12:14200)')
+    # print('')
